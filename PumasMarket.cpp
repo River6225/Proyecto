@@ -15,7 +15,7 @@ using namespace std;
  void calcularISV (){
     if (cantidadCervezaExtranjera > 0 || cantidadCervezaNacional > 0 || botellasVino > 0 || botellasVodka > 0)
     {
-        // Aplicar isv 18%
+        // Aplicar isv 18% al llevar licores
         isvConLicores = subTotal * 0.18;
         totalAPagar = subTotal + isvConLicores;
     }else{
