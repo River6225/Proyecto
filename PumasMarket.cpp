@@ -6,9 +6,25 @@ using namespace std;
 
  int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas, subtCervezasN, acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervezasE, cervezasESueltas, subtCervezasE;
  int acumBTVino = 0, botellasVino, subtBTVino, acumBTVodka = 0, botellasVodka, subtBTVodka, edadCliente, num, productoBotella;
+ float isv, isvConLicores,subTotal, totalAPagar;
  string nombreCliente;
 
 
+
+ 
+ void calcularISV (){
+    if (cantidadCervezaExtranjera > 0 || cantidadCervezaNacional > 0 || botellasVino > 0 || botellasVodka > 0)
+    {
+        // Aplicar isv 18%
+        isvConLicores = subTotal * 0.18;
+        totalAPagar = subTotal + isvConLicores;
+    }else{
+        isv = subTotal * 0.15;
+        totalAPagar = subTotal + isv;
+    }
+    
+
+}
 
 
 
@@ -186,7 +202,7 @@ int main() {
 		getline(cin, nombreCliente);
 		
 		cout<<"Ingrese su edad: "<<endl;
-		cin>>edadCliente;
+		cin>> edadCliente;
 		
 		
 		
