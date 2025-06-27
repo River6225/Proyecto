@@ -4,12 +4,11 @@
 using namespace std;
 
 
- int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas, subtCervezasN, acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervezasE, cervezasESueltas, subtCervezasE;
- int acumBTVino = 0, botellasVino, subtBTVino, acumBTVodka = 0, botellasVodka, subtBTVodka, edadCliente, num, productoBotella;
- float isv, isvConLicores,subTotal, totalAPagar;
+ int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas, acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervezasE, cervezasESueltas;
+ int acumBTVino = 0,tomatesLb,repolloLb, botellasVino, acumBTVodka = 0, botellasVodka,edadCliente, num, productoBotella;
  string nombreCliente;
-
-
+float  acumLbrTomates, subTomates,acumLbrRepollo, subtRepollo,subtCervezasN,subtCervezasE,subtBTVodka, subtBTVino;
+float isvConLicores, subTotal, totalAPagar, isv;
 
  
  void calcularISV (){
@@ -35,8 +34,8 @@ void menuVerduras() {
 	do {
 		cout << "\nVERDURAS\n";
 		cout << "1. Tomates\n";
-		cout << "2. Cebollas\n";
-		cout << "3. Chiles\n";
+		cout << "2. Repollos\n";
+		cout << "3. Papas\n";
 		cout << "4. Regresar\n";
 		cout << "Selecciona una opcion: ";
 		cin >> opcion;
@@ -44,37 +43,18 @@ void menuVerduras() {
 		switch (opcion) {
 		case 1:
 			cout << "Has seleccionado Tomates\n";
-			
+			       acumLbrTomates = acumLbrTomates + tomatesLb;
+				   subTomates = (tomatesLb * 10);
 			break;
 		case 2:
-			cout << "Has seleccionado Cebollas\n";
+			cout << "Has seleccionado Repollo\n";
+			       acumLbrRepollo = acumLbrRepollo + repolloLb;
+				  subtRepollo = (repolloLb*15);
 			break;
 		case 3:
+			cout <<"Has seleccionado Papas\n";
 			
-			int opcionChiles;
-			do {
-				cout << "\nCHILES\n";
-				cout << "1. Chile verde\n";
-				cout << "2. Chile morron\n";
-				cout << "3. Regresar\n";
-				cout << "Selecciona una opcion: ";
-				cin >> opcionChiles;
-				
-				switch (opcionChiles) {
-				case 1:
-					cout << "Has seleccionado Chile verde\n";
-					break;
-				case 2:
-					cout << "Has seleccionado Chile morron\n";
-					break;
-				case 3:
-					cout << "Regresando al menu anterior...\n";
-					break;
-				default:
-					cout << "Opcion invalida. Intentalo de nuevo.\n";
-				}
-			} while (opcionChiles != 3);
-			break;
+			break;	
 		case 4:
 			cout << "Regresando al menu principal...\n";
 			break;
