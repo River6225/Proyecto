@@ -1,14 +1,36 @@
 #include <iostream>
+#include <string>
 
 
 using namespace std;
+// separar las variables por area para evitar problemas
+//Licores
+int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas;
+int  acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervezasE, cervezasESueltas;
+int acumBTVino = 0, botellasVino, acumBTVodka = 0, botellasVodka, num, productoBotella; 
+float subtCervezasN, subtCervezasE, subtBTVodka, subtBTVino;
+// Verduras
+int  tomatesLb,repolloLb;
+float  acumLbrTomates, subTomates,acumLbrRepollo, subtRepollo;
+// Impuestos
+float isvConLicores, isv;
+// TOTALES PARA IMPRIMIR 
+float subTotal, totalAPagar;
+ 
+void calcularISV (){
+    if (cantidadCervezaExtranjera > 0 || cantidadCervezaNacional > 0 || botellasVino > 0 || botellasVodka > 0)
+    {
+        // Aplicar isv 18% al llevar licores
+        isvConLicores = subTotal * 0.18;
+        totalAPagar = subTotal + isvConLicores;
+    }else{
+		// Aplicar 15% en General
+        isv = subTotal * 0.15;
+        totalAPagar = subTotal + isv;
+    }
+    
 
-
- int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas, acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervezasE, cervezasESueltas;
- int acumBTVino = 0,tomatesLb,repolloLb, botellasVino, acumBTVodka = 0, botellasVodka,edadCliente, num, productoBotella;
- string nombreCliente;
-float  acumLbrTomates, subTomates,acumLbrRepollo, subtRepollo,subtCervezasN,subtCervezasE,subtBTVodka, subtBTVino;
-
+}
 
 
 
@@ -101,9 +123,9 @@ void menuCarnes() {
 	} while (opcion != 7);
 }
 
-void menuLicores() {
+void menuLicores(int edad) {
 	
-	if(edadCliente <18 ){
+	if(edad <18 ){
 		
 		cout<<"No se le vende alcohol a menores de edad."<<endl;
 		
@@ -160,14 +182,15 @@ void menuLicores() {
 }
 
 int main() {
-	
+	string nombreCliente;
+	int edadCliente;
 		cout<<"\033[31m**********BIENVENIDOS A PUMA MARKET**********\033[0m"<<endl;
 		cout << "Ingrese su nombre completo: ";
 		cin.ignore(); // Limpia el buffer antes de usar getline
 		getline(cin, nombreCliente);
 		
 		cout<<"Ingrese su edad: "<<endl;
-		cin>>edadCliente;
+		cin>> edadCliente;
 		
 		
 		
@@ -189,7 +212,7 @@ int main() {
 			menuCarnes();
 			break;
 		case 3:
-			menuLicores();
+			menuLicores(edadCliente);
 			break;
 		case 4:
 			cout << "Saliendo del programa...\n";
