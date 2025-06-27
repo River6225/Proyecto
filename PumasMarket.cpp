@@ -4,10 +4,10 @@
 using namespace std;
 
 
- int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas, subtCervezasN, acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervezasE, cervezasESueltas, subtCervezasE;
- int acumBTVino = 0, botellasVino, subtBTVino, acumBTVodka = 0, botellasVodka, subtBTVodka, edadCliente, num, productoBotella;
+ int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas, acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervezasE, cervezasESueltas;
+ int acumBTVino = 0,tomatesLb,repolloLb, botellasVino, acumBTVodka = 0, botellasVodka,edadCliente, num, productoBotella;
  string nombreCliente;
-
+float  acumLbrTomates, subTomates,acumLbrRepollo, subtRepollo,subtCervezasN,subtCervezasE,subtBTVodka, subtBTVino;
 
 
 
@@ -34,17 +34,12 @@ void menuVerduras() {
 		case 2:
 			cout << "Has seleccionado Repollo\n";
 			       acumLbrRepollo = acumLbrRepollo + repolloLb;
-				  subtRepollo = (repollo*15);
+				  subtRepollo = (repolloLb*15);
 			break;
 		case 3:
-			cout <<"Has seleccionado Papas"\n;
+			cout <<"Has seleccionado Papas\n";
 			
-			break;
-				default:
-					cout << "Opcion invalida. Intentalo de nuevo.\n";
-				}
-			} while (opcionChiles != 3);
-			break;
+			break;	
 		case 4:
 			cout << "Regresando al menu principal...\n";
 			break;
