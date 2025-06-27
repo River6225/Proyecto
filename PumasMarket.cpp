@@ -18,6 +18,7 @@ float isvConLicores, subTotal, totalAPagar, isv;
         isvConLicores = subTotal * 0.18;
         totalAPagar = subTotal + isvConLicores;
     }else{
+		// Aplicar 15% en General
         isv = subTotal * 0.15;
         totalAPagar = subTotal + isv;
     }
