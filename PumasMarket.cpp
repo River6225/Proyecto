@@ -12,6 +12,10 @@ float subtCervezasN, subtCervezasE, subtBTVodka, subtBTVino;
 // Verduras
 int  tomatesLb,repolloLb;
 float  acumLbrTomates, subTomates,acumLbrRepollo, subtRepollo;
+// Carnes 
+int carneMolidaLb, carneDeCerdoLb,carneParaAsarLb;
+int acumLbrCarneM,acumLbrCarneC,acumLbrCarnepA;
+float subtCarneM,subtCarneC, subtCarnepA;
 // Impuestos
 float isvConLicores, isv;
 // TOTALES PARA IMPRIMIR 
@@ -75,44 +79,22 @@ void menuCarnes() {
 	int opcion;
 	do {
 		cout << "\nCARNES\n";
-		cout << "4. Carne de res\n";
+		cout << "4. Carne  Molida\n";
 		cout << "5. Carne de cerdo\n";
-		cout << "6. Pollo\n";
+		cout << "6. Carne para Asar\n";
 		cout << "7. Regresar\n";
 		cout << "Selecciona una opcion: ";
 		cin >> opcion;
 		
 		switch (opcion) {
 		case 4:
-			cout << "Has seleccionado Carne de res\n";
+			cout << "Has seleccionado Carne Molida\n";
 			break;
 		case 5:
-			int opcionCerdo;
-			do {
-				cout << "\nCARNE DE CERDO\n";
-				cout << "1. Nacional\n";
-				cout << "2. Exportada\n";
-				cout << "3. Regresar\n";
-				cout << "Selecciona una opcion: ";
-				cin >> opcionCerdo;
-				
-				switch (opcionCerdo) {
-				case 1:
-					cout << "Has seleccionado Carne de cerdo Nacional\n";
-					break;
-				case 2:
-					cout << "Has seleccionado Carne de cerdo Exportada\n";
-					break;
-				case 3:
-					cout << "Regresando al menu anterior...\n";
-					break;
-				default:
-					cout << "Opcion invalida. Intentalo de nuevo.\n";
-				}
-			} while (opcionCerdo != 3);
+			cout << "Has seleccionado Carne de Cerdo\n";
 			break;
 		case 6:
-			cout << "Has seleccionado Pollo\n";
+			cout << "Has seleccionado Carne para Asar\n";
 			break;
 		case 7:
 			cout << "Regresando al menu principal...\n";
