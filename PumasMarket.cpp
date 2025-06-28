@@ -139,7 +139,7 @@ void menuCarnes() {
 			cout << "Has seleccionado Carne para Asar\n";
 			cout <<  "Cantidad de Libras Carne Para Asar a Llevar \n";
 			cin >> carneParaAsarLb;
-			acumLbrCarneM = acumLbrCarneC + carneParaAsarLb;
+			acumLbrCarnepA = acumLbrCarneC + carneParaAsarLb;
 			subtCarnepA = carneParaAsarLb * 75;
 			break;
 		case 7:
