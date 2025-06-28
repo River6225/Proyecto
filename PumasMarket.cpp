@@ -10,8 +10,8 @@ int  acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervez
 int acumBTVino = 0, botellasVino, acumBTVodka = 0, botellasVodka, num, productoBotella; 
 float subtCervezasN, subtCervezasE, subtBTVodka, subtBTVino;
 // Verduras
-int  tomatesLb,repolloLb;
-float  acumLbrTomates, subTomates,acumLbrRepollo, subtRepollo;
+int  tomatesLb,repolloLb, papasLb;
+float  acumLbrTomates, subTomates,acumLbrRepollo, subtRepollo, acumLbrPapas, subtPapas;
 // Carnes 
 int carneMolidaLb, carneDeCerdoLb,carneParaAsarLb;
 int acumLbrCarneM,acumLbrCarneC,acumLbrCarnepA;
@@ -55,16 +55,17 @@ void menuVerduras() {
 		case 1:
 			cout << "Has seleccionado Tomates\n";
 			       acumLbrTomates = acumLbrTomates + tomatesLb;
-				   subTomates = (tomatesLb * 10);
+			       subTomates = (tomatesLb * 10);
 			break;
 		case 2:
 			cout << "Has seleccionado Repollo\n";
 			       acumLbrRepollo = acumLbrRepollo + repolloLb;
-				  subtRepollo = (repolloLb*15);
+			       subtRepollo = (repolloLb*15);
 			break;
 		case 3:
 			cout <<"Has seleccionado Papas\n";
-			
+			        acumLbrPapas = acumLbrPapas + papasLb;                               
+			        subtPapas = (papasLb * 17);
 			break;	
 		case 4:
 			cout << "Regresando al menu principal...\n";
@@ -73,6 +74,8 @@ void menuVerduras() {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 4);
+        
+	subTotal = subTotal + (subTomates + subtPapas + subtRepollo);
 }
 
 void menuCarnes() {
@@ -89,12 +92,24 @@ void menuCarnes() {
 		switch (opcion) {
 		case 4:
 			cout << "Has seleccionado Carne Molida\n";
+			cout <<  "Cantidad de Libras Carne Molida a Llevar \n";
+			cin >> carneMolidaLb;
+			acumLbrCarneM = acumLbrCarneM + carneMolidaLb;
+			subtCarneM = carneMolidaLb * 50;
 			break;
 		case 5:
 			cout << "Has seleccionado Carne de Cerdo\n";
+			cout <<  "Cantidad de Libras Carne De Cerdo a Llevar \n";
+			cin >> carneDeCerdoLb;
+			acumLbrCarneC = acumLbrCarneC + carneDeCerdoLb;
+			subtCarneC = carneDeCerdoLb * 70;
 			break;
 		case 6:
 			cout << "Has seleccionado Carne para Asar\n";
+			cout <<  "Cantidad de Libras Carne Para Asar a Llevar \n";
+			cin >> carneParaAsarLb;
+			acumLbrCarneM = acumLbrCarneC + carneParaAsarLb;
+			subtCarnepA = carneParaAsarLb * 75;
 			break;
 		case 7:
 			cout << "Regresando al menu principal...\n";
@@ -103,6 +118,7 @@ void menuCarnes() {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 7);
+	subTotal += subtCarneM + subtCarneC + subtCarnepA;
 }
 
 void menuLicores(int edad) {
@@ -161,6 +177,9 @@ void menuLicores(int edad) {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 11);
+
+	subTotal += subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;
+	
 }
 
 int main() {
