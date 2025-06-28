@@ -24,7 +24,7 @@ float isvConLicores, isv;
 float subTotal, totalAPagar;
 // Descuentos
 int tipoCliente, diaSemana;
-float descCliente, descAdicional, descTerceraEdad, subtCarnes, subtVerduras, subtLicores, totalDescuento;
+float descCarneMolida, descCarneCerdo, descCarnepA, descTomate, descRepollo, descPapa, descuentoTotal, descCervezaNac, descCervezaExt, descTerceraEdad;
 
 
 void calcularISV (){
@@ -50,25 +50,24 @@ void calcularDescuentos() {
 	
 		switch (tipoCliente) {
 		case 1:
-			descCliente = (subtCarnes + subtVerduras) * 0.04;
+			
 			break;
 		case 2:
-			descCliente = subtCarnes * 0.03;
+			
 			break;
 		case 3:
-			descCliente = subtLicores * 0.02;
+			
 			break;
 		default:
 			cout << "Tipo de cliente invalido.\n";
 			return;
 	}  
 		if (diaSemana == 1 || diaSemana == 3)
-			descAdicional = subTotal * 0.03;
+			
 		
 		if (diaSemana == 5 && edadCliente >= 65)
-			descTerceraEdad = descTerceraEdad + subTotal * 0.10;
+			
 		
-		 totalDescuento = descCliente + descAdicional + descTerceraEdad;
 	
 	}
 		
@@ -106,8 +105,8 @@ void menuVerduras() {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 4);   
-	subtVerduras = (subTomates + subtPapas + subtRepollo); 
-	subTotal = subTotal + subtVerduras;
+
+	subTotal = subTotal + subTomates + subtPapas + subtRepollo; ;
 }
 void menuCarnes() {
 	int opcion;
@@ -149,8 +148,8 @@ void menuCarnes() {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 7);
-	subtCarnes = subtCarneM + subtCarneC + subtCarnepA;
-	subTotal += subtCarnes;
+	
+	subTotal += subTotal + subtCarneM + subtCarneC + subtCarnepA;
 }
 
 void menuLicores(int edad) {
@@ -209,8 +208,8 @@ void menuLicores(int edad) {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 11);
-    subtLicores = subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;
-	subTotal += subtLicores;
+  
+	subTotal += subTotal + subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;;
 }
 
 int main() {
