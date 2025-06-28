@@ -89,12 +89,24 @@ void menuCarnes() {
 		switch (opcion) {
 		case 4:
 			cout << "Has seleccionado Carne Molida\n";
+			cout <<  "Cantidad de Libras Carne Molida a Llevar \n";
+			cin >> carneMolidaLb;
+			acumLbrCarneM = acumLbrCarneM + carneMolidaLb;
+			subtCarneM = carneMolidaLb * 50;
 			break;
 		case 5:
 			cout << "Has seleccionado Carne de Cerdo\n";
+			cout <<  "Cantidad de Libras Carne De Cerdo a Llevar \n";
+			cin >> carneDeCerdoLb;
+			acumLbrCarneC = acumLbrCarneC + carneDeCerdoLb;
+			subtCarneC = carneDeCerdoLb * 70;
 			break;
 		case 6:
 			cout << "Has seleccionado Carne para Asar\n";
+			cout <<  "Cantidad de Libras Carne Para Asar a Llevar \n";
+			cin >> carneParaAsarLb;
+			acumLbrCarneM = acumLbrCarneC + carneParaAsarLb;
+			subtCarnepA = carneParaAsarLb * 75;
 			break;
 		case 7:
 			cout << "Regresando al menu principal...\n";
@@ -103,6 +115,7 @@ void menuCarnes() {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 7);
+	subTotal += subtCarneM + subtCarneC + subtCarnepA;
 }
 
 void menuLicores(int edad) {
