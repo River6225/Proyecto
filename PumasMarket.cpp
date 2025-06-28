@@ -55,16 +55,17 @@ void menuVerduras() {
 		case 1:
 			cout << "Has seleccionado Tomates\n";
 			       acumLbrTomates = acumLbrTomates + tomatesLb;
-				   subTomates = (tomatesLb * 10);
+			       subTomates = (tomatesLb * 10);
 			break;
 		case 2:
 			cout << "Has seleccionado Repollo\n";
 			       acumLbrRepollo = acumLbrRepollo + repolloLb;
-				  subtRepollo = (repolloLb*15);
+			       subtRepollo = (repolloLb*15);
 			break;
 		case 3:
 			cout <<"Has seleccionado Papas\n";
-			
+			        acumLbrPapas = acumLbrPapas + papasLb.                                
+			        subtPapas = (papasLb x 17) 
 			break;	
 		case 4:
 			cout << "Regresando al menu principal...\n";
@@ -73,6 +74,9 @@ void menuVerduras() {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 4);
+        
+	subTotal = subTomates + subtPapas + subtRepollo;
+	subTotal = subtotal + (subTomates + subtPapas + subtRepollo);
 }
 
 void menuCarnes() {
@@ -174,6 +178,9 @@ void menuLicores(int edad) {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 11);
+
+	subTotal = subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;
+	subtotal = subTotal + subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;
 }
 
 int main() {
