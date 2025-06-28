@@ -67,7 +67,7 @@ void menuCarnes() {
 		cout << "\033[33m******CARNES******\033[0m"<<endl;;
 		cout << "4. Carne de res----------"<<"Lps.50 libra"<<endl;
 		cout << "5. Carne de cerdo--------"<<"Lps.70 libra"<<endl;
-		cout << "6. Pollo-----------------"<<"Lps.75 libra"<<endl;
+		cout << "6. Carne para asar-------"<<"Lps.75 libra"<<endl;
 		cout << "7. Regresar\n";
 		cout << "Selecciona una opcion: ";
 		cin >> opcion;
@@ -102,7 +102,7 @@ void menuCarnes() {
 			} while (opcionCerdo != 3);
 			break;
 		case 6:
-			cout << "Has seleccionado Pollo\n";
+			cout << "Has seleccionado carne para asar\n";
 			break;
 		case 7:
 			cout << "Regresando al menu principal...\n";
