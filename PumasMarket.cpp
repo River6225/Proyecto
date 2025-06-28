@@ -4,7 +4,7 @@
 
 using namespace std;
 string nombreCliente;
-int edadCliente;
+int edadCliente, id;
 // separar las variables por area por areas para evitar problemas
 //Licores
 int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas;
@@ -89,10 +89,10 @@ void calcularDescuentos() {
 void menuVerduras() {
 	int opcion;
 	do {
-		cout << "\nVERDURAS\n";
-		cout << "1. Tomates\n";
-		cout << "2. Repollos\n";
-		cout << "3. Papas\n";
+		cout << "\033[32m******VERDURAS******\033[0m"<<endl;;
+		cout << "1. Tomates------"<<"Lps.10 libra"<<endl;
+		cout << "2. Repollo------"<<"Lps.15 libra"<<endl;
+		cout << "3. Papas--------"<<"Lps.17 libra"<<endl;
 		cout << "4. Regresar\n";
 		cout << "Selecciona una opcion: ";
 		cin >> opcion;
@@ -100,36 +100,41 @@ void menuVerduras() {
 		switch (opcion) {
 		case 1:
 			cout << "Has seleccionado Tomates\n";
+			cout << "Cantidad de Libras de tomates a llevar: \n";
+			cin >> tomatesLb;
 			       acumLbrTomates = acumLbrTomates + tomatesLb;
-			       subTomates = (tomatesLb * 10);
+				   subTomates = (tomatesLb * 10);
 			break;
 		case 2:
 			cout << "Has seleccionado Repollo\n";
-			       acumLbrRepollo = acumLbrRepollo + repolloLb;
-			       subtRepollo = (repolloLb*15);
+			cout << "Cantidad de repollos a llevar: \n";
+			cin >> repolloLb;
+			      acumLbrRepollo = acumLbrRepollo + repolloLb;
+				  subtRepollo = (repolloLb*15);
 			break;
 		case 3:
-			cout <<"Has seleccionado Papas\n";
-			        acumLbrPapas = acumLbrPapas + papasLb;                               
-			        subtPapas = (papasLb * 17);
-			break;	
+			cout<< "Has seleccionado Papas\n";
+			cout << "Cantidad de Libras de papas a llevar: \n";
+			cin >> papasLb;
+			acumLbrPapas = acumLbrPapas + papasLb;                               
+			subtPapas = (papasLb * 17);
+			break;
 		case 4:
 			cout << "Regresando al menu principal...\n";
 			break;
 		default:
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
-	} while (opcion != 4);   
-
-	subTotal = subTotal + subTomates + subtPapas + subtRepollo; ;
+	} while (opcion != 4);
+	subTotal += subTomates + subtPapas + subtRepollo; ;
 }
 void menuCarnes() {
 	int opcion;
 	do {
-		cout << "\nCARNES\n";
-		cout << "4. Carne  Molida\n";
-		cout << "5. Carne de cerdo\n";
-		cout << "6. Carne para Asar\n";
+		cout << "\033[33m******CARNES******\033[0m"<<endl;;
+		cout << "4. Carne Molida ----------"<<"Lps.50 libra"<<endl;
+		cout << "5. Carne de cerdo --------"<<"Lps.70 libra"<<endl;
+		cout << "6. Carne para Asar -----------------"<<"Lps.75 libra"<<endl;
 		cout << "7. Regresar\n";
 		cout << "Selecciona una opcion: ";
 		cin >> opcion;
@@ -164,12 +169,12 @@ void menuCarnes() {
 		}
 	} while (opcion != 7);
 	
-	subTotal += subTotal + subtCarneM + subtCarneC + subtCarnepA;
+	subTotal +=  subtCarneM + subtCarneC + subtCarnepA;
 }
 
-void menuLicores(int edad) {
+void menuLicores() {
 	
-	if(edad <18 ){
+	if(edadCliente <18 ){
 		
 		cout<<"No se le vende alcohol a menores de edad."<<endl;
 		
@@ -180,11 +185,11 @@ void menuLicores(int edad) {
 	
 	int opcion;
 	do {
-		cout << "\nLICORES\n";
-		cout << "7. Cervezas\n";
-		cout << "8. Cervezas Extranjeras\n";
-		cout << "9. Vinos\n";
-		cout << "10. Vodka\n";
+		cout << "\033[34m******LICORES******\033[0m"<<endl;
+		cout << "7. Cervezas------------------"<<"Lps.50 c/u"<<endl;
+		cout << "8. Cervezas Extranjeras------"<<"Lps.80 c/u"<<endl;
+		cout << "9. Vinos---------------------"<<"Lps.200 c/u"<<endl;
+		cout << "10. Vodka--------------------"<<"Lps.100 c/u"<<endl;;
 		cout << "11. Regresar\n";
 		cout << "Selecciona una opcion: ";
 		cin >> opcion;
@@ -192,6 +197,8 @@ void menuLicores(int edad) {
 		switch (opcion) {
 		case 7:
 			cout << "Has seleccionado Cervezas\n";
+			cout << "Cantidad de cerveza nacional a llevar:  \n";
+			cin >> cantidadCervezaNacional;
 			       acumCervezasN = acumCervezasN + cantidadCervezaNacional;
 				   contSixpacksN = acumCervezasN / 6;
 				   cervezasNSueltas = acumCervezasN % 6;
@@ -199,6 +206,8 @@ void menuLicores(int edad) {
 			break;
 		case 8: 
 			cout << "Has seleccionado Cervezas Extranjeras\n";
+			cout << "Cantidad de cervezas extranjeras a llevar: \n";
+			cin >> cervezasE;
 			       acumCervezasE = acumCervezasE + cantidadCervezaExtranjera;
 				   contSixpacksE = acumCervezasE / 6;
 				   subtCervezasE = (contSixpacksE *6*80)-(contSixpacksE*10)+(cervezasESueltas*80);
@@ -206,12 +215,17 @@ void menuLicores(int edad) {
 			break;
 		case 9:
 			cout << "Has seleccionado Vinos\n";
+			cout << "Cantidad de botellas de vino a Llevar \n";
+			cin >> botellasVino;
 			       acumBTVino = acumBTVino + botellasVino;
 				   subtBTVino = (botellasVino * 200);
 				  
 			break;
 		case 10:
 			cout << "Has seleccionado Vodka\n";
+			cout << "Cantidad de botellas de vodka a llevar: \n";
+			cin >> botellasVodka;
+			
 			     acumBTVodka = acumBTVodka + botellasVodka;
 				 subtBTVodka = (botellasVodka * 100);
 				
@@ -224,20 +238,74 @@ void menuLicores(int edad) {
 		}
 	} while (opcion != 11);
   
-	subTotal += subTotal + subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;;
+	subTotal += subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;;
 }
 
 int main() {
 	
-		cout<<"\033[31m**********BIENVENIDOS A PUMA MARKET**********\033[0m"<<endl;
+	cout<<"\033[31m**********BIENVENIDOS A PUMA MARKET**********\033[0m"<<endl;
 		cout << "Ingrese su nombre completo: ";
 		cin.ignore(); // Limpia el buffer antes de usar getline
 		getline(cin, nombreCliente);
 		
 		cout<<"Ingrese su edad: "<<endl;
-		cin>> edadCliente;
+		cin>>edadCliente;
 		
+		while(edadCliente <= 10 || edadCliente >=100 ){
+			cout<<"Edad fuera de rango valido (10 a 100 años)."<<endl;
+			cout<<"Ingrese su edad nuevamente: "<<endl;
+			cin>>edadCliente;
+		}
 		
+		cout<<"Ingrese su numero de identidad: "<<endl;
+		cin>> id;
+		
+		cout <<"Seleccione el tipo de cliente: "<< endl;
+		cout <<"1 = Estrella" << endl;
+		cout <<"2 = Regular" << endl;
+		cout <<"3 = Nuevo" << endl;
+		cout <<"Ingrese su opcion: "<<endl;
+		cin >> tipoCliente;
+		cin.clear();
+		
+		while (tipoCliente < 1 || tipoCliente > 3) {
+			cin.clear();
+			cout << "Opcion invalida. Debe ingresar 1, 2 o 3." << endl;
+			cout << "Ingrese nuevamente el tipo de cliente: "<<endl;
+			cin >> tipoCliente;
+		}
+		
+		// Opcional: mensaje segun tipo
+		if (tipoCliente == 1) {
+			cout << "Ha seleccionado: Cliente Estrella." << endl;
+		} else if (tipoCliente == 2) {
+			cout << "Ha seleccionado: Cliente Regular." << endl;
+		} else {
+			cout << "Ha seleccionado: Cliente Nuevo." << endl;
+		}
+		
+		cout<<"Ingrese el dia 1 = Lunes, 2 = Martes, 3 = Miercoles, 4 = Jueves, 5 = Viernes, 6 = Sabado, 7 = Domingo "<<endl;
+		cin>>diaSemana;
+		
+		while(diaSemana <1 || diaSemana >7 ){
+			cout<<"Dia De La Semana Incorrecto, Ingrese nuevamente su seleccion: "<<endl;
+			cin>>diaSemana;
+		}
+		if (diaSemana == 1) {
+			cout << "Ha seleccionado: Lunes----"<<"3% adicional"<< endl;
+		} else if (diaSemana == 2) {
+			cout << "Ha seleccionado: Martes" << endl;
+		} else if (diaSemana == 3) {
+			cout << "Ha seleccionado: Miercoles----"<<"3% adicional"<< endl;
+		} else if (diaSemana == 4) {
+			cout << "Ha seleccionado: Jueves" << endl;
+		} else if (diaSemana == 5) {
+			cout << "Ha seleccionado: Viernes-----" <<"10% adicional para la tercera edad (+65 años)"<< endl;
+		} else if (diaSemana == 6) {
+			cout << "Ha seleccionado: Sabado" << endl;
+		} else if (diaSemana == 7) {
+			cout << "Ha seleccionado: Domingo" << endl;
+		}
 		
 	int opcion;
 	do {
@@ -257,7 +325,7 @@ int main() {
 			menuCarnes();
 			break;
 		case 3:
-			menuLicores(edadCliente);
+			menuLicores();
 			break;
 		case 4:
 			cout << "Saliendo del programa...\n";
