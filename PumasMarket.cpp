@@ -24,7 +24,7 @@ float isvConLicores, isv;
 float subTotal, totalAPagar;
 // Descuentos
 int tipoCliente, diaSemana;
-float descCarneMolida, descCarneCerdo, descCarnepA, descTomate, descRepollo, descPapa, descuentoTotal, descCervezaNac, descCervezaExt, descTerceraEdad;
+float descCarneMolida, descCarneCerdo, descCarnepA, descTomate, descRepollo, descPapa, descuentoTotal, descCervezaNac, descCervezaExt, descTerceraEdad, descVino, descVodka, descAdicional;
 
 
 void calcularISV (){
@@ -50,25 +50,40 @@ void calcularDescuentos() {
 	
 		switch (tipoCliente) {
 		case 1:
-			
+			descCarneMolida = subtCarneM * 0.04;
+			descCarneCerdo = subtCarneC * 0.04;
+			descCarnepA = subtCarnepA * 0.04;
+			descTomate = subTomates * 0.04;
+			descRepollo = subtRepollo * 0.04;
+			descPapa = subtPapas * 0.04;
+			descuentoTotal = descCarneCerdo + descCarneMolida + descCarnepA + descTomate + descPapa + descRepollo;
 			break;
 		case 2:
-			
+			descCarneMolida = subtCarneM * 0.03;
+			descCarneCerdo = subtCarneC * 0.03;
+			descCarnepA = subtCarnepA * 0.03;
+			descuentoTotal = subtCarnepA + subtCarneC + subtCarneM;
 			break;
 		case 3:
-			
+			descCervezaNac = subtCervezasN * 0.02;
+			descCervezaExt = subtCervezasE * 0.02;
+			descVino = subtBTVino * 0.02;
+			descVodka = subtBTVodka * 0.02;
+			descuentoTotal = descVodka + descVino +  descCervezaExt + descCervezaNac;
 			break;
 		default:
 			cout << "Tipo de cliente invalido.\n";
 			return;
 	}  
-		if (diaSemana == 1 || diaSemana == 3)
-			
-		
-		if (diaSemana == 5 && edadCliente >= 65)
-			
-		
-	
+		if (diaSemana == 1 || diaSemana == 3){
+			descAdicional = subTotal * 0.03;
+		    descuentoTotal += descAdicional;
+		}
+		if (diaSemana == 5 && edadCliente >= 65){
+            descTerceraEdad += descTerceraEdad *0.10;
+			descuentoTotal += descTerceraEdad;
+		}
+
 	}
 		
 void menuVerduras() {
