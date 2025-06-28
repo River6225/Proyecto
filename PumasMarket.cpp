@@ -3,7 +3,9 @@
 
 
 using namespace std;
-// separar las variables por area para evitar problemas
+string nombreCliente;
+int edadCliente;
+// separar las variables por area por areas para evitar problemas
 //Licores
 int acumCervezasN = 0, cantidadCervezaNacional, contSixpacksN = 0, cervezasNSueltas;
 int  acumCervezasE = 0, contSixpacksE = 0, cantidadCervezaExtranjera = 0, cervezasE, cervezasESueltas;
@@ -20,7 +22,11 @@ float subtCarneM,subtCarneC, subtCarnepA;
 float isvConLicores, isv;
 // TOTALES PARA IMPRIMIR 
 float subTotal, totalAPagar;
- 
+// Descuentos
+int tipoCliente, diaSemana;
+float descCliente, descAdicional, descTerceraEdad, subtCarnes, subtVerduras, subtLicores, totalDescuento;
+
+
 void calcularISV (){
     if (cantidadCervezaExtranjera > 0 || cantidadCervezaNacional > 0 || botellasVino > 0 || botellasVodka > 0)
     {
@@ -36,10 +42,36 @@ void calcularISV (){
 
 }
 
-
-
-
-
+void calcularDescuentos() {
+	if (edadCliente >= 65)
+	{
+		descTerceraEdad = subTotal * 0.25;
+	}
+	
+		switch (tipoCliente) {
+		case 1:
+			descCliente = (subtCarnes + subtVerduras) * 0.04;
+			break;
+		case 2:
+			descCliente = subtCarnes * 0.03;
+			break;
+		case 3:
+			descCliente = subtLicores * 0.02;
+			break;
+		default:
+			cout << "Tipo de cliente invalido.\n";
+			return;
+	}  
+		if (diaSemana == 1 || diaSemana == 3)
+			descAdicional = subTotal * 0.03;
+		
+		if (diaSemana == 5 && edadCliente >= 65)
+			descTerceraEdad = descTerceraEdad + subTotal * 0.10;
+		
+		 totalDescuento = descCliente + descAdicional + descTerceraEdad;
+	
+	}
+		
 void menuVerduras() {
 	int opcion;
 	do {
@@ -73,11 +105,10 @@ void menuVerduras() {
 		default:
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
-	} while (opcion != 4);
-        
-	subTotal = subTotal + (subTomates + subtPapas + subtRepollo);
+	} while (opcion != 4);   
+	subtVerduras = (subTomates + subtPapas + subtRepollo); 
+	subTotal = subTotal + subtVerduras;
 }
-
 void menuCarnes() {
 	int opcion;
 	do {
@@ -118,7 +149,8 @@ void menuCarnes() {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 7);
-	subTotal += subtCarneM + subtCarneC + subtCarnepA;
+	subtCarnes = subtCarneM + subtCarneC + subtCarnepA;
+	subTotal += subtCarnes;
 }
 
 void menuLicores(int edad) {
@@ -177,14 +209,12 @@ void menuLicores(int edad) {
 			cout << "Opcion invalida. Intentalo de nuevo.\n";
 		}
 	} while (opcion != 11);
-
-	subTotal += subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;
-	
+    subtLicores = subtBTVino  + subtBTVodka + subtCervezasE + subtCervezasN;
+	subTotal += subtLicores;
 }
 
 int main() {
-	string nombreCliente;
-	int edadCliente;
+	
 		cout<<"\033[31m**********BIENVENIDOS A PUMA MARKET**********\033[0m"<<endl;
 		cout << "Ingrese su nombre completo: ";
 		cin.ignore(); // Limpia el buffer antes de usar getline
